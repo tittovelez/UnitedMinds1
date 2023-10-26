@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimatorController : MonoBehaviour
 {
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class AnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        anim.SetBool("Grounded", true);
+        anim.SetBool()
     }
 }
