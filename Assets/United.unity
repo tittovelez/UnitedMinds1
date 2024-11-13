@@ -166,7 +166,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
-  m_Direction: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &789460396
 MeshRenderer:
@@ -278,7 +278,7 @@ MonoBehaviour:
   speed_backwards: 4
   speed_sprint: 8
   speed_air: 1.5
-  jumpForce: 5
+  jumpForce: 1
   direction: {x: 1, y: 1, z: 1}
   movement: {x: 0, y: 0}
   velocity: {x: 1, y: 1, z: 0}

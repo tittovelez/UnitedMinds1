@@ -11,7 +11,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float speed_backwards = 2;
     public float speed_sprint = 8;
     public float speed_air = 1f;
-    public float jumpForce = 5f; // Fuerza del salto
+    public float jumpForce = 1f; // Fuerza del salto
 
     public Vector3 direction;
     public Vector2 movement;
@@ -65,7 +65,11 @@ public class FirstPersonMovement : MonoBehaviour
         // Movimiento basado en la orientación del objeto
         transform.position += transform.forward * movement.y * Time.deltaTime + transform.right * movement.x * Time.deltaTime;
 
-        // Comprobar y realizar el salto
+        // Comprobar y realizar el salt
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.velocity += (Vector3.up * jumpForce);
+        }
     }
         private void Move()
     {
