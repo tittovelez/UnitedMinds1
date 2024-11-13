@@ -10,7 +10,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float speed_sideways = 3;
     public float speed_backwards = 2;
     public float speed_sprint = 8;
-    public float speed_air = 0.5f;
+    public float speed_air = 1f;
     public Vector2 movement;
     public Vector3 velocity;
     private Vector3 desiredvelocity;
