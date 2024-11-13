@@ -4,8 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(GroundDetector))]
 [RequireComponent(typeof(Rigidbody))]
-public class FirstPersonMovement : MonoBehaviour
+public class PersonMovement1 : MonoBehaviour
 {
+    public float moveSpeed = 5f;
+    public bool isActive = true; // Controla si el personaje está activo
     public float speed_forward = 4;
     public float speed_sideways = 3;
     public float speed_backwards = 2;
@@ -27,6 +29,15 @@ public class FirstPersonMovement : MonoBehaviour
 
     void Update()
     {
+        {
+            if (!isActive) return; // Si no está activo, no se mueve
+
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical) * moveSpeed * Time.deltaTime;
+            transform.Translate(movement, Space.World);
+        }
         // Control de movimiento horizontal y vertical
         movement.y = Input.GetAxis("Vertical");
         movement.x = Input.GetAxis("Horizontal");
