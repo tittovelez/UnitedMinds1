@@ -11,11 +11,11 @@ public class FirstPersonMovement : MonoBehaviour
     public float speed_backwards = 2;
     public float speed_sprint = 8;
     public float speed_air = 1f;
+    public float jumpForce = 5f; // Fuerza del salto
+
+    public Vector3 direction;
     public Vector2 movement;
     public Vector3 velocity;
-    private Vector3 desiredvelocity;
-    Vector3 lastPosition;
-
     private GroundDetector ground;
     private Rigidbody rb;
 
@@ -27,21 +27,22 @@ public class FirstPersonMovement : MonoBehaviour
 
     void Update()
     {
-
+        // Control de movimiento horizontal y vertical
         movement.y = Input.GetAxis("Vertical");
         movement.x = Input.GetAxis("Horizontal");
-        if (movement.magnitude > 1) //Si el input es con teclado, es posible que en diagonal vaya más rápido que de frente, limitamos el input del jugador.
+
+        // Limitar velocidad en diagonal
+        if (movement.magnitude > 1)
         {
             movement = movement.normalized;
         }
 
-        //La velocidad lateral siempre es la misma
+        // Ajuste de velocidad de acuerdo a la dirección
         movement.x *= speed_sideways;
 
-        //Si el jugador va hacia adelante
-        if (movement.y > 0)
+        if (movement.y > 0) // Avanzar hacia adelante
         {
-            if (Input.GetButton("Sprint")) //Aplicamos otra velocidad cuando el jugador esté corriendo. Esta velocidad se aplica solo cuando el jugador vaya hacia adelante
+            if (Input.GetButton("Sprint")) // Correr si se presiona el botón de correr
             {
                 movement.y *= speed_sprint;
             }
@@ -50,21 +51,29 @@ public class FirstPersonMovement : MonoBehaviour
                 movement.y *= speed_forward;
             }
         }
-        else // Si el jugador va hacia atrás
+        else // Retroceder
         {
             movement.y *= speed_backwards;
         }
 
-        if (!ground.grounded)//Cuando el jugador está en el aire, su velocidad es distinta
+        // Reducir velocidad en el aire
+        if (!ground.grounded)
         {
             movement *= speed_air;
         }
+
+        // Movimiento basado en la orientación del objeto
         transform.position += transform.forward * movement.y * Time.deltaTime + transform.right * movement.x * Time.deltaTime;
+
+        // Comprobar y realizar el salto
     }
-    void LateUpdate() //Calculo de la velocidad real para la animación
+        private void Move()
     {
-        desiredvelocity = transform.InverseTransformDirection(((transform.position - lastPosition) / Time.deltaTime) + rb.velocity);
-        velocity = Vector3.Lerp(velocity, desiredvelocity, Time.deltaTime * 5);
-        lastPosition = transform.position;
+        direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        direction = direction.normalized;
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.velocity += (Vector3.up * jumpForce);
+        }
     }
 }
