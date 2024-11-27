@@ -7,6 +7,7 @@ public class MiradaCamara : MonoBehaviour
 {
     public float Velocidad = 100;
     float RotacionX = 0;
+    float RotacionY = 0;
     public Transform Jugador1;
     public Transform Jugador2;
     // Start is called before the first frame update
@@ -25,8 +26,10 @@ public class MiradaCamara : MonoBehaviour
         RotacionX = Mathf.Clamp (RotacionX, -90f, -90f);
 
         transform.localRotation = Quaternion.Euler(RotacionX, -90f, 0f);
+        transform.localRotation = Quaternion.Euler(RotacionY, -90f, 0f);
         Jugador1.Rotate(Vector3.up * MouseX);
         transform.localRotation = Quaternion.Euler(RotacionX, -90f, 0f);
+        transform.localRotation = Quaternion.Euler(RotacionY, -90f, 0f);
         Jugador2.Rotate(Vector3.up * MouseX);
     }
 }
