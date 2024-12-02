@@ -26,10 +26,8 @@ public class MiradaCamara : MonoBehaviour
         RotacionX = Mathf.Clamp (RotacionX, -90f, -90f);
 
         transform.localRotation = Quaternion.Euler(RotacionX, -90f, 0f);
-        transform.localRotation = Quaternion.Euler(RotacionY, -90f, 0f);
         Jugador1.Rotate(Vector3.up * MouseX);
         transform.localRotation = Quaternion.Euler(RotacionX, -90f, 0f);
-        transform.localRotation = Quaternion.Euler(RotacionY, -90f, 0f);
         Jugador2.Rotate(Vector3.up * MouseX);
     }
 }
