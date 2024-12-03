@@ -10,7 +10,7 @@ Material:
   m_Name: Enemigo
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 2100000, guid: a0280806decc22c43ad855f7b82cce90, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
   - _METALLICGLOSSMAP
   - _NORMALMAP
@@ -47,5 +47,6 @@ Material:
     - _BumpScale: 0.3
     - _GlossMapScale: 0
     - _Parallax: 0.02
-    m_Colors: []
+    m_Colors:
+    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

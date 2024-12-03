@@ -5,6 +5,7 @@ using TMPro;
 
 public class OpenDoor : MonoBehaviour
 {
+    public float speed =  5f;
     private Animator anim;
     public bool IsAtDoor = false;
     private bool isDoorOpen = false;
