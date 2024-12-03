@@ -27,12 +27,16 @@ public class TextDisplay : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNear = true; // Activamos el control de texto
-            currentIndex = 0; // Reiniciamos el índice al primer texto
-            displayText.text = texts[currentIndex]; // Mostramos el primer texto
-            displayText.gameObject.SetActive(true); // Asegúrate de que el texto esté visible
+            isPlayerNear = true;
+            currentIndex = 0; // Reiniciar al primer texto.
+            if (texts.Length > 0)
+            {
+                displayText.text = texts[currentIndex]; // Mostrar el primer texto.
+                displayText.gameObject.SetActive(true); // Asegurarse de que el texto esté visible.
+            }
         }
     }
+
 
     void OnTriggerExit(Collider other)
     {
@@ -43,12 +47,22 @@ public class TextDisplay : MonoBehaviour
         }
     }
 
+
     void ShowNextText()
     {
-        if (texts.Length == 0) return; // Si no hay textos, salir
+        if (texts.Length == 0) return; // Salir si no hay textos.
 
-        currentIndex++; // Avanzamos al siguiente texto
-        if (currentIndex >= texts.Length) currentIndex = 0; // Reiniciar al inicio si llegamos al final
-        displayText.text = texts[currentIndex]; // Actualizamos el texto en pantalla
+        currentIndex++; // Avanzar al siguiente texto.
+
+        if (currentIndex >= texts.Length)
+        {
+            displayText.gameObject.SetActive(false); // Ocultar el texto.
+            isPlayerNear = false; // Opcional: desactivar la interacción.
+        }
+        else
+        {
+            displayText.text = texts[currentIndex]; // Mostrar el siguiente texto.
+        }
     }
+
 }

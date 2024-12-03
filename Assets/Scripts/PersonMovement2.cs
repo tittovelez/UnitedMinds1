@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(GroundDetector))]
 [RequireComponent(typeof(Rigidbody))]
-public class PersonMovement2 : MonoBehaviour
+public class PersonMovement22 : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isActive = true; // Controla si el personaje está activo

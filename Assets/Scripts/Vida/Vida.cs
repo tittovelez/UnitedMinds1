@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth2 : MonoBehaviour
 {
     public Slider healthBar; // La barra de vida
     public float maxHealth = 100f; // Salud máxima
