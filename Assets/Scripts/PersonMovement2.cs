@@ -35,8 +35,6 @@ public class PersonMovement22 : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical) * moveSpeed * Time.deltaTime;
-            transform.Translate(movement, Space.World);
         }
         // Control de movimiento horizontal y vertical
         movement.y = Input.GetAxis("Vertical");
@@ -77,15 +75,6 @@ public class PersonMovement22 : MonoBehaviour
         transform.position += transform.forward * movement.y * Time.deltaTime + transform.right * movement.x * Time.deltaTime;
 
         // Comprobar y realizar el salt
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity += (Vector3.up * jumpForce);
-        }
-    }
-        private void Move()
-    {
-        direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        direction = direction.normalized;
         if (Input.GetButtonDown("Jump"))
         {
             rb.velocity += (Vector3.up * jumpForce);
