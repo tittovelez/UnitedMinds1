@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public int damage = 10; // Daño que inflige la bala
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
