@@ -2816,9 +2816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   isActive: 1
-  speed_forward: 4
-  speed_sideways: 3
-  speed_backwards: 2
+  speed_forward: 5
+  speed_sideways: 5
+  speed_backwards: 5
   speed_sprint: 8
   speed_air: 1
   jumpForce: 5
@@ -24338,11 +24338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19b9851f5207e54894a4c2d1efabfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   isActive: 1
-  speed_forward: 4
-  speed_sideways: 3
-  speed_backwards: 2
+  speed_forward: 5
+  speed_sideways: 5
+  speed_backwards: 5
   speed_sprint: 8
   speed_air: 1
   jumpForce: 5
