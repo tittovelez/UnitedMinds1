@@ -6,17 +6,20 @@ public class Bullet : MonoBehaviour
 {
     public int damage = 10; // Daño que inflige la bala
 
-    void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            PlayerHealth1 playerHealth = collision.gameObject.GetComponent<PlayerHealth1>();
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);
             }
         }
         // Destruir la bala al colisionar
-        Destroy(gameObject);
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

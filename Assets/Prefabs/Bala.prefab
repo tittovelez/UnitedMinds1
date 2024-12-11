@@ -148,7 +148,7 @@ Transform:
   - {fileID: 4886095641855146055}
   - {fileID: 7052451263347546920}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1932856625130219899
 Rigidbody:
@@ -196,7 +196,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.13359594
+  m_Radius: 0.5
   m_Center: {x: 0, y: -0.0142092705, z: 0}
 --- !u!114 &4506195336529565548
 MonoBehaviour:
