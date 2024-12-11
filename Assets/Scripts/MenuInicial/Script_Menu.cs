@@ -6,7 +6,7 @@ public class Script_Menu : MonoBehaviour
 {
     public void EmpezarNivel(string NombreNivel)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void Salir()
     {

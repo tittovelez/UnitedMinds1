@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ObjectInteract : MonoBehaviour
 {
-    public float healAmount = 10f; // Daño que este objeto causa al jugador
+    public float healAmount = 10f; // Cantidad de vida que cura
+    public float damageAmount = 10f; // Cantidad de vida que quita
+    public bool isHealing = true; // Define si este objeto cura (true) o hace daño (false)
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,13 +17,19 @@ public class ObjectInteract : MonoBehaviour
 
             if (playerHealth != null)
             {
-                playerHealth.Heal(healAmount); // Reducir la vida del jugador
+                if (isHealing)
+                {
+                    playerHealth.Heal(healAmount); // Curar al jugador
+                    Debug.Log("El jugador fue curado: +" + healAmount + " de vida.");
+                }
+                else
+                {
+                    playerHealth.TakeDamage(damageAmount); // Hacer daño al jugador
+                    Debug.Log("El jugador recibió daño: -" + damageAmount + " de vida.");
+                }
             }
 
-            Destroy(gameObject); // Destruir el objeto
+            Destroy(gameObject); // Destruir el objeto después de la interacción
         }
     }
 }
-
-
-
