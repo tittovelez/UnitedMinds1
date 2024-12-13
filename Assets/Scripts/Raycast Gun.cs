@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaycastGun : MonoBehaviour
 {
+    public LayerMask mask;
     public Camera playerCamera;
     public Transform laserOrigin;
     public float GunRange = 50f;
@@ -33,7 +34,7 @@ public class RaycastGun : MonoBehaviour
             fireTimer = 0;
             //laserLine.SetPosition(0, laserOrigin.position);
             RaycastHit hit;
-            if(Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, GunRange))
+            if(Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, GunRange,mask))
             {
                 //laserLine.SetPosition(1, hit.point);
                 Destroy(hit.transform.gameObject);
