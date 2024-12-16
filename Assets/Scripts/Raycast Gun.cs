@@ -45,6 +45,7 @@ public class RaycastGun : MonoBehaviour
             }
             StartCoroutine(ShootLaser());
         }
+        
     }
     IEnumerator ShootLaser()
     {

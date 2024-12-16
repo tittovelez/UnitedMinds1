@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+public class DoorController1 : MonoBehaviour
 {
     public float openAngle = 90f; // Ángulo de apertura
     public float openSpeed = 2f; // Velocidad de apertura
