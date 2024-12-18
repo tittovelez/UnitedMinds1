@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - bullet
   - Collectible
+  - mortal
+  - Mortal
   layers:
   - Default
   - TransparentFX

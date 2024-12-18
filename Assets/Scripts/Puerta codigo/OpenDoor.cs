@@ -5,7 +5,7 @@ using TMPro;
 
 public class OpenDoor : MonoBehaviour
 {
-    public float speed =  5f;
+    public float speed = 5f;
     private Animator anim;
     public bool IsAtDoor = false;
     private bool isDoorOpen = false;
@@ -15,9 +15,21 @@ public class OpenDoor : MonoBehaviour
     public string safeCode;
     public GameObject CodePanel;
 
+    // Variables para el sonido
+    public AudioClip doorOpenSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        // Asignar el AudioSource al objeto
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // Agregar AudioSource si no existe
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -30,6 +42,16 @@ public class OpenDoor : MonoBehaviour
             anim.SetTrigger("OpenDoor");
             CodePanel.SetActive(false);
             isDoorOpen = true;
+
+            // Reproducir el sonido de apertura de la puerta
+            if (doorOpenSound != null)
+            {
+                audioSource.PlayOneShot(doorOpenSound);
+            }
+            else
+            {
+                Debug.LogWarning("No hay sonido asignado a 'doorOpenSound'.");
+            }
         }
 
         // Reiniciar código si excede la longitud permitida
@@ -87,4 +109,5 @@ public class OpenDoor : MonoBehaviour
         }
     }
 }
+
 

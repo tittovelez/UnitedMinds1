@@ -6,7 +6,7 @@ public class CameraSwitcher : MonoBehaviour
     public Camera camera1; // Cámara para el personaje 1
     public Camera camera2; // Cámara para el personaje 2
 
-    public PersonMovement1 character1Movement; // Script de movimiento del personaje 1
+    public PlayerMovement12 character1Movement; // Script de movimiento del personaje 1
     public PersonMovement2 character2Movement; // Script de movimiento del personaje 2
 
     private Camera activeCamera; // Cámara actualmente activa

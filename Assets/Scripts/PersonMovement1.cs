@@ -19,7 +19,7 @@ public class PlayerMovement11 : MonoBehaviour
     private Rigidbody rb;
     private GroundDetector ground;
 
-    private bool canJump = true; // Controla si el personaje puede saltar
+    private bool canJump = false; // Controla si el personaje puede saltar
 
     private void Awake()
     {
@@ -59,21 +59,26 @@ public class PlayerMovement11 : MonoBehaviour
         Vector3 moveDirection = transform.forward * movement.y + transform.right * movement.x;
         rb.MovePosition(rb.position + moveDirection * Time.deltaTime);
 
-        // Saltar si está en el suelo y no ha saltado aún
-        if (canJump && Input.GetButtonDown("Jump"))
+        // Saltar solo si está en el suelo
+        if (ground.grounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            canJump = false; // Impedir más saltos hasta que toque el suelo
+            canJump = false; // Bloquear salto temporalmente
         }
     }
 
     private void FixedUpdate()
     {
-        // Verificar si está en el suelo para habilitar saltos nuevamente
+        // Actualizar si puede saltar dependiendo de si está en el suelo
         if (ground.grounded)
         {
             canJump = true;
         }
+        else
+        {
+            canJump = false; // Bloquear salto si no está tocando el suelo
+        }
     }
 }
+
 

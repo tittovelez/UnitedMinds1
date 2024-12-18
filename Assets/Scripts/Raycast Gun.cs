@@ -4,53 +4,52 @@ using UnityEngine;
 
 public class RaycastGun : MonoBehaviour
 {
-    public LayerMask mask;
+    public LayerMask mask; // Capa para filtrar los objetos que puede golpear
     public Camera playerCamera;
-    public Transform laserOrigin;
+    public Transform laserOrigin; // Punto desde donde se dispara el rayo
     public float GunRange = 50f;
-    public float fireRate = 0.2f;
+    public float fireRate = 0.2f; // Cadencia de disparo
     public float laserDuration = 0.05f;
+    public int damagePerHit = 5; // Daño progresivo por cada disparo
 
     LineRenderer laserLine;
     float fireTimer;
-    // Start is called before the first frame update
 
-     void Awake()
+    void Awake()
     {
         laserLine = GetComponent<LineRenderer>();
-
-    }
-    void Start()
-    {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         fireTimer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1"))
+
+        if (Input.GetButtonDown("Fire1") && fireTimer >= fireRate) // Solo dispara si el tiempo lo permite
         {
-            fireTimer = 0;
-            //laserLine.SetPosition(0, laserOrigin.position);
+            fireTimer = 0; // Reinicia el temporizador de disparo
             RaycastHit hit;
-            if(Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, GunRange,mask))
+
+            // Dispara un rayo hacia adelante
+            if (Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, GunRange, mask))
             {
-                //laserLine.SetPosition(1, hit.point);
-                Destroy(hit.transform.gameObject);
+                // Comprueba si el objeto golpeado tiene el script VidaEnemigo
+                VidaEnemigo enemigo = hit.transform.GetComponent<VidaEnemigo>();
+                if (enemigo != null)
+                {
+                    enemigo.RecibirDaño(damagePerHit); // Aplica daño al enemigo
+                }
             }
-            else
-            {
-                //laserLine.SetPosition(1, rayOrigin + (playerCamera.transform.forward * GunRange));
-            }
+
             StartCoroutine(ShootLaser());
         }
-        
     }
+
     IEnumerator ShootLaser()
     {
-        //laserLine.enabled = true;
-        yield return new  WaitForSeconds(laserDuration) ;
-        //laserLine.enabled = false;
+        // Visualización temporal del láser (si activas LineRenderer)
+        laserLine.enabled = true;
+        yield return new WaitForSeconds(laserDuration);
+        laserLine.enabled = false;
     }
 }
+
