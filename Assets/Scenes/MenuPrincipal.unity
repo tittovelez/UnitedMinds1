@@ -218,7 +218,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1602367262}
   - {fileID: 1107341352}
   - {fileID: 2023332419}
   m_Father: {fileID: 0}
@@ -279,7 +278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6716, y: -311.1455}
+  m_AnchoredPosition: {x: -0.6716, y: -255}
   m_SizeDelta: {x: 387.4885, y: 37.9996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244661694
@@ -1982,7 +1981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.32}
+  m_AnchoredPosition: {x: 0, y: 6.3200073}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1181572294
@@ -2021,8 +2020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6716, y: 2.9848}
-  m_SizeDelta: {x: 968.7213, y: 633.3276}
+  m_AnchoredPosition: {x: -0.6716, y: 1.3984}
+  m_SizeDelta: {x: 968.7213, y: 630.1549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1181572296
 MonoBehaviour:
@@ -2436,18 +2435,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602367261}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0249, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 83848991}
+  m_Father: {fileID: 2023332419}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00017071, y: -0.012646}
-  m_SizeDelta: {x: 1920, y: 1260.2}
+  m_AnchoredPosition: {x: -0.00017071, y: -8.046}
+  m_SizeDelta: {x: 1920, y: 1244.523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602367263
 MonoBehaviour:
@@ -2748,6 +2747,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1602367262}
   - {fileID: 783589916}
   - {fileID: 598036860}
   - {fileID: 1067565264}
