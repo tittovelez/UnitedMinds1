@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MenuPrincipal.unity
+    path: Assets/Scenes/MenuPrincipal.unity
     guid: ce86eb3528c08844fb2df487f843672a
   - enabled: 1
     path: Assets/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/HasganadoScene.unity
+    path: Assets/Scenes/HasganadoScene.unity
     guid: 06a6d5cd83f21ee4da3c8ee3fb56661e
   m_configObjects: {}

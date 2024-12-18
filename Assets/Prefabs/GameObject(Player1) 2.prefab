@@ -5564,7 +5564,7 @@ GameObject:
   - component: {fileID: 8777074643904363752}
   - component: {fileID: -8497401322018681872}
   m_Layer: 0
-  m_Name: Fusion
+  m_Name: GameObject(Player1) 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5587,7 +5587,7 @@ Transform:
   - {fileID: 4979111295782862472}
   - {fileID: 6013345023487976100}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 89.964, z: 0}
 --- !u!23 &5503401352634459502
 MeshRenderer:

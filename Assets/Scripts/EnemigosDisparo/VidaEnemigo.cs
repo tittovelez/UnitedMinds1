@@ -5,7 +5,7 @@ public class VidaEnemigo : MonoBehaviour
 {
     public int vidaEnemigo = 100; // Vida total del enemigo
     public Slider BarraVidaEnemigo; // Barra de vida del enemigo
-    public GameObject objetoAlMorir; // Objeto que aparecerá cuando el enemigo muera
+    public GameObject objetoExistente; // Objeto que se activará cuando el enemigo muera
 
     void Start()
     {
@@ -14,6 +14,12 @@ public class VidaEnemigo : MonoBehaviour
         {
             BarraVidaEnemigo.maxValue = vidaEnemigo;
             BarraVidaEnemigo.value = vidaEnemigo;
+        }
+
+        // Asegúrate de que el objeto que se activará está desactivado al inicio
+        if (objetoExistente != null)
+        {
+            objetoExistente.SetActive(false);
         }
     }
 
@@ -40,16 +46,13 @@ public class VidaEnemigo : MonoBehaviour
 
     void Morir()
     {
-        // Aparece un objeto al morir en la posición del enemigo
-        if (objetoAlMorir != null)
+        // Activa un objeto existente al morir
+        if (objetoExistente != null)
         {
-            Instantiate(objetoAlMorir, transform.position, Quaternion.identity);
+            objetoExistente.SetActive(true);
         }
 
         // Destruye el enemigo
         Destroy(gameObject);
     }
 }
-
-
-
